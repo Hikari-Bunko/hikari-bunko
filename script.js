@@ -147,3 +147,85 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = img.dataset.src;
     });
 });
+
+
+// Fitur Pencarian Produk
+function searchProducts() {
+    const query = document.getElementById('search').value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(product => {
+        const name = product.querySelector('h3').textContent.toLowerCase();
+        if (name.includes(query)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+// Fitur Notifikasi
+function showNotification(message) {
+    if (Notification.permission === 'granted') {
+        new Notification('Hoshizora Bunko', { body: message });
+    } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification('Hoshizora Bunko', { body: message });
+            }
+        });
+    }
+}
+
+// Fitur Diskon dan Promo
+function applyPromo() {
+    const code = document.getElementById('promo-code').value;
+    if (code === 'DISKON10') {
+        total *= 0.9; // 10% discount
+        updateCart();
+        alert('Promo code applied!');
+    } else {
+        alert('Invalid promo code.');
+    }
+}
+
+// Fitur Riwayat Transaksi
+let transactionHistory = [];
+
+function addToTransactionHistory(product, total) {
+    transactionHistory.push({ product, total, date: new Date() });
+    localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+}
+
+function displayTransactionHistory() {
+    const history = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+    const container = document.getElementById('transaction-history');
+    container.innerHTML = '<h2>Transaction History</h2>';
+    history.forEach(transaction => {
+        const item = document.createElement('div');
+        item.textContent = `${transaction.product} - $${transaction.total} on ${transaction.date.toLocaleString()}`;
+        container.appendChild(item);
+    });
+}
+
+// Fitur Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+// Fitur Multi-Bahasa (i18n)
+const translations = {
+    en: { welcome: 'Welcome', login: 'Login', search: 'Search products...' },
+    id: { welcome: 'Selamat Datang', login: 'Masuk', search: 'Cari produk...' }
+};
+
+let currentLang = 'en';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    document.getElementById('welcome').textContent = translations[lang].welcome;
+    document.getElementById('login').textContent = translations[lang].login;
+    document.getElementById('search').placeholder = translations[lang].search;
+}
+
+// Contoh penggunaan
+setLanguage('id'); // Set bahasa ke Indonesia
