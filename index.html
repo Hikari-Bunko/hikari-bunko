@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suka baca novel dari luar negeri tapi kesulitan memahami bahasanya? Tenang, Hoshizora Bunko ada buat kamu! Kami menerjemahkan cerita menarik dari berbagai penjuru dunia, biar kamu bisa menikmati kisah-kisah seru tanpa ribet. Yuk, jelajahi dunia baru lewat kata-kata!">
+    <title>Hoshizora Bunko - Perpustakaan Langit Berbintang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="img/hb200x200.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hoshizora Bunko</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/hb200x200.png" alt="Product 1" class="lazy-load" data-src="img/product1.jpg">
+                    <h3>Product 1</h3>
+                    <p>$10.00</p>
+                    <button aria-label="Add to Cart" onclick="addToCart('Product 1', 10)">Add to Cart</button>
+                    <button onclick="toggleDescription('desc1')">View Description</button>
+                    <div id="desc1" class="product-description" style="display: none;">
+                        <p>This is a detailed description of Product 1.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="img/hb200x200.png" alt="Product 2" class="lazy-load" data-src="img/product2.jpg">
+                    <h3>Product 2</h3>
+                    <p>$20.00</p>
+                    <button aria-label="Add to Cart" onclick="addToCart('Product 2', 20)">Add to Cart</button>
+                    <button onclick="toggleDescription('desc2')">View Description</button>
+                    <div id="desc2" class="product-description" style="display: none;">
+                        <p>This is a detailed description of Product 2.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <button onclick="openPaymentModal()" class="checkout-btn">Proceed to Payment</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hoshizora Bunko. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+            <h2>Choose Payment Method</h2>
+            <div class="payment-methods">
+                <button onclick="selectPaymentMethod('Dana', '1234567890', 'John Doe')">Dana</button>
+                <button onclick="selectPaymentMethod('GoPay', '0987654321', 'Jane Doe')">GoPay</button>
+                <button onclick="selectPaymentMethod('ShopeePay', '1122334455', 'ShopPro')">ShopeePay</button>
+                <button onclick="selectPaymentMethod('Bank Transfer', '1234-5678-9012', 'Bank ABC')">Bank Transfer</button>
+            </div>
+            <div id="payment-details" class="hidden">
+                <h3>Payment Details</h3>
+                <p><strong>Selected Method:</strong> <span id="selected-method"></span></p>
+                <p><strong>Account Name:</strong> <span id="account-name"></span></p>
+                <p><strong>Account Number:</strong> <span id="account-number"></span></p>
+                <p><strong>Total:</strong> $<span id="payment-total">0.00</span></p>
+                <form id="confirmation-form" onsubmit="handleConfirmation(event)">
+                    <label for="proof">Upload Payment Proof:</label>
+                    <input type="file" id="proof" name="proof" required>
+                    <label for="contact">Contact (WA):</label>
+                    <input type="text" id="contact" name="contact" placeholder="Enter your WhatsApp" required>
+                    <button type="submit">Confirm Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</body>
+</html>
