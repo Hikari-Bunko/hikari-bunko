@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Suka baca novel dari luar negeri tapi kesulitan memahami bahasanya? Tenang, Hoshizora Bunko ada buat kamu! Kami menerjemahkan cerita menarik dari berbagai penjuru dunia, biar kamu bisa menikmati kisah-kisah seru tanpa ribet. Yuk, jelajahi dunia baru lewat kata-kata!">
-    <title>Hoshizora Bunko - Perpustakaan Langit Berbintang</title>
+    <title>Hoshizora Bunko</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="img/hb200x200.png" type="image/png">
@@ -13,11 +12,11 @@
 <body>
     <header>
         <div class="container">
-            <h1>Hoshizora Bunko</h1>
+            <h1 id="welcome">Hoshizora Bunko</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="login.html" id="login">Login</a></li>
                     <li><a href="register.html">Register</a></li>
                 </ul>
             </nav>
@@ -25,28 +24,27 @@
     </header>
 
     <main class="container">
+        <section id="search-section">
+            <input type="text" id="search" placeholder="Search products..." oninput="searchProducts()">
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('id')">Indonesia</button>
+        </section>
+
         <section id="products">
             <h2>Our Products</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="img/hb200x200.png" alt="Product 1" class="lazy-load" data-src="img/product1.jpg">
+                    <img src="img/hb200x200.png" alt="Product 1">
                     <h3>Product 1</h3>
                     <p>$10.00</p>
-                    <button aria-label="Add to Cart" onclick="addToCart('Product 1', 10)">Add to Cart</button>
-                    <button onclick="toggleDescription('desc1')">View Description</button>
-                    <div id="desc1" class="product-description" style="display: none;">
-                        <p>This is a detailed description of Product 1.</p>
-                    </div>
+                    <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
                 </div>
                 <div class="product-card">
-                    <img src="img/hb200x200.png" alt="Product 2" class="lazy-load" data-src="img/product2.jpg">
+                    <img src="img/hb200x200.png" alt="Product 2">
                     <h3>Product 2</h3>
                     <p>$20.00</p>
-                    <button aria-label="Add to Cart" onclick="addToCart('Product 2', 20)">Add to Cart</button>
-                    <button onclick="toggleDescription('desc2')">View Description</button>
-                    <div id="desc2" class="product-description" style="display: none;">
-                        <p>This is a detailed description of Product 2.</p>
-                    </div>
+                    <button onclick="addToCart('Product 2', 20)">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -55,7 +53,13 @@
             <h2>Your Cart</h2>
             <ul id="cart-items"></ul>
             <p>Total: $<span id="cart-total">0.00</span></p>
+            <input type="text" id="promo-code" placeholder="Enter promo code">
+            <button onclick="applyPromo()">Apply</button>
             <button onclick="openPaymentModal()" class="checkout-btn">Proceed to Payment</button>
+        </section>
+
+        <section id="transaction-history">
+            <h2>Transaction History</h2>
         </section>
     </main>
 
@@ -94,7 +98,6 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="auth.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
