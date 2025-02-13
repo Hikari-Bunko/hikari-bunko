@@ -1,5 +1,10 @@
 /* Variabel CSS untuk tema light */
 :root {
+    --admin-bg: #f4f4f4;
+    --admin-text: #333;
+    --admin-border: #2c3e50;
+    --admin-icon: #3498db;
+    --admin-link: #3498db;
     --background-color: #f9f9f9;
     --text-color: #333;
     --header-bg: #2c3e50;
@@ -14,6 +19,11 @@
 
 /* Variabel CSS untuk tema dark */
 [data-theme="dark"] {
+    --admin-bg: #2c2c2c;
+    --admin-text: #f9f9f9;
+    --admin-border: #555;
+    --admin-icon: #3498db;
+    --admin-link: #3498db;
     --background-color: #1a1a1a;
     --text-color: #f9f9f9;
     --header-bg: #1c1c1c;
@@ -578,74 +588,84 @@ footer p {
 
 /* Informasi Admin */
 #admin-info {
-    background-color: #f4f4f4;
-    padding: 20px 0;
-    margin-bottom: 20px;
+    background-color: var(--admin-bg);
+    padding: 40px 0;
+    margin: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .admin-profile {
+    text-align: center;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
 .profile-img {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    margin-right: 20px;
-    border: 3px solid #2c3e50;
+    border: 5px solid var(--admin-border);
+    margin: 0 auto 20px;
+    display: block;
 }
 
 #admin-info h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: #2c3e50;
+    font-size: 2rem;
+    color: var(--admin-text);
+    margin-bottom: 10px;
 }
 
 #admin-info p {
     font-size: 1rem;
-    color: #555;
+    color: var(--admin-text);
     line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px;
 }
 
 .contact-details, .social-media {
+    text-align: center;
     margin-top: 20px;
 }
 
 .contact-details h3, .social-media h3 {
-    font-size: 1.4rem;
-    color: #2c3e50;
+    font-size: 1.5rem;
+    color: var(--admin-text);
     margin-bottom: 10px;
 }
 
 .contact-details ul, .social-media ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .contact-details ul li, .social-media ul li {
     margin: 10px 0;
     font-size: 1rem;
-    color: #555;
+    color: var(--admin-text);
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .contact-details ul li i, .social-media ul li i {
     margin-right: 10px;
     font-size: 1.2rem;
-    color: #3498db;
+    color: var(--admin-icon);
 }
 
 .contact-details ul li strong {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--admin-text);
     margin-right: 5px;
 }
 
 .contact-details ul li a, .social-media ul li a {
-    color: #3498db;
+    color: var(--admin-link);
     text-decoration: none;
 }
 
