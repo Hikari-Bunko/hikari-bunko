@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Hoshizora Bunko</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/hb200x200.png" type="image/png">
 </head>
 <body>
     <header>
@@ -15,13 +16,12 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="profile.html">Profile</a></li>
                     <li><a href="#" onclick="handleLogout()">Logout</a></li>
-                    <!-- Tambahkan tombol dark mode -->
+                  <!-- Tambahkan tombol dark mode -->
                     <li>
                       <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon"></i> <!-- Ikon bulan untuk dark mode -->
                       </button>
                     </li>
-                </ul>
                 </ul>
             </nav>
         </div>
@@ -29,27 +29,63 @@
 
     <main class="container">
         <section id="profile">
-            <h2>Profile</h2>
+            <h2>Your Profile</h2>
             <div id="profile-info">
-                <p><strong>Name:</strong> <span id="profile-name"></span></p>
-                <p><strong>Email:</strong> <span id="profile-email"></span></p>
-                <p><strong>Payment Account:</strong> <span id="profile-payment-account"></span></p>
+                <!-- Informasi profil akan ditampilkan di sini -->
             </div>
+            <form id="update-payment-form" onsubmit="updatePaymentAccount(event)">
+                <label for="new-payment-account">Update Payment Account:</label>
+                <input type="text" id="new-payment-account" name="new-payment-account" placeholder="example (Dana: 080099998877 A/N John Doe)" required>
+                <button type="submit">Update Payment Account</button>
+            </form>
         </section>
     </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hoshizora Bunko. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="auth.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const user = JSON.parse(localStorage.getItem('loggedInUser'));
-            if (user) {
-                document.getElementById('profile-name').textContent = user.name;
-                document.getElementById('profile-email').textContent = user.email;
-                document.getElementById('profile-payment-account').textContent = user.paymentAccount;
-            } else {
-                window.location.href = 'login.html';
-            }
-        });
+        // Tampilkan informasi profil pengguna yang login
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (user) {
+            document.getElementById('profile-info').innerHTML = `
+                <p><strong>Name:</strong> ${user.name}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Payment Account:</strong> ${user.paymentAccount}</p>
+            `;
+        } else {
+            // Jika tidak ada pengguna yang login, redirect ke halaman login
+            window.location.href = 'login.html';
+        }
+
+        // Fungsi untuk mengupdate akun pembayaran
+        function updatePaymentAccount(event) {
+            event.preventDefault();
+            const newPaymentAccount = document.getElementById('new-payment-account').value;
+
+            // Update akun pembayaran di localStorage
+            user.paymentAccount = newPaymentAccount;
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+
+            // Perbarui tampilan profil
+            document.getElementById('profile-info').innerHTML = `
+                <p><strong>Name:</strong> ${user.name}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Payment Account:</strong> ${user.paymentAccount}</p>
+            `;
+
+            alert('Payment account updated successfully!');
+        }
+
+        // Fungsi untuk logout
+        function handleLogout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        }
     </script>
 </body>
 </html>
