@@ -12,23 +12,38 @@
 </head>
 <body>
     <header>
-        <div class="container">
+    <div class="container">
+        <!-- Logo dan Nama Situs -->
+        <div class="logo">
+            <img src="img/hb200x200.png" alt="Hoshizora Bunko Logo">
             <h1>Hoshizora Bunko</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                  <!-- Tambahkan tombol dark mode -->
-                    <li>
-                      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i> <!-- Ikon bulan untuk dark mode -->
-                      </button>
-                    </li>
-                </ul>
-            </nav>
         </div>
-    </header>
+
+        <!-- Menu Navigasi -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <!-- Tombol Toggle Dark Mode -->
+                <li>
+                    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Tombol Menu untuk Tampilan Mobile -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</header>
 
     <!-- Informasi Admin -->
 <section id="admin-info">
