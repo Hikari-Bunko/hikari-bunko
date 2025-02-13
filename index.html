@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-    <div class="kazucontainer">
+    <div class="container">
         <!-- Logo dan Nama Situs -->
         <div class="logo">
             <img src="img/hb200x200.png" alt="Hoshizora Bunko Logo">
@@ -29,10 +29,12 @@
                 <li><a href="register.html">Register</a></li>
             </ul>
         </nav>
-        <!-- Tombol Toggle Dark Mode -->
+      
+      <!-- Tombol Toggle Dark Mode -->
  <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
     <i class="fas fa-moon"></i>
  </button>
+
         <!-- Tombol Menu untuk Tampilan Mobile -->
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
@@ -40,10 +42,10 @@
             <span class="bar"></span>
         </div>
     </div>
-        
 </header>
 
     <!-- Informasi Admin -->
+<!-- Informasi Admin -->
 <section id="admin-info">
     <div class="container">
         <div class="admin-profile">
@@ -122,10 +124,10 @@
         </section>
 
         <section id="cart">
-            <h2>Your Cart</h2>
-            <ul id="cart-items"></ul>
-            <p>Total: $<span id="cart-total">0.00</span></p>
-            <button onclick="openPaymentModal()" class="checkout-btn">Proceed to Payment</button>
+           <h2>Your Cart</h2>
+           <ul id="cart-items"></ul>
+           <p>Total: $<span id="cart-total">0.00</span></p>
+           <button onclick="openPaymentModal()" class="checkout-btn">Proceed to Payment</button>
         </section>
     </main>
 
@@ -150,6 +152,7 @@
    </footer>
 
     <!-- Modal Pembayaran -->
+<div id="payment-modal" class="modal">
 <div id="payment-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closePaymentModal()">&times;</span>
