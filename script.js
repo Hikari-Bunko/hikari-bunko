@@ -139,10 +139,13 @@ function toggleDescription(id) {
     }
 }
 
-// Fungsi untuk toggle dark mode
+// Ambil elemen tombol toggle
 const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+// Cek tema yang disimpan di localStorage
 const currentTheme = localStorage.getItem('theme');
 
+// Jika tema dark mode aktif, set tema dan ubah ikon
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ikon matahari untuk light mode
@@ -151,15 +154,18 @@ if (currentTheme === 'dark') {
     darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ikon bulan untuk dark mode
 }
 
+// Event listener untuk tombol toggle
 darkModeToggle.addEventListener('click', () => {
     const theme = document.documentElement.getAttribute('data-theme');
     if (theme === 'light') {
+        // Aktifkan dark mode
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ganti ke ikon matahari
     } else {
+        // Aktifkan light mode
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ganti ke ikon bulan
     }
 });
