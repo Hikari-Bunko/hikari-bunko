@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoshizora Bunko</title>
+    <meta name="description" content="Suka baca novel dari luar negeri tapi kesulitan memahami bahasanya? Tenang, Hoshizora Bunko ada buat kamu! Kami menerjemahkan cerita menarik dari berbagai penjuru dunia, biar kamu bisa menikmati kisah-kisah seru tanpa ribet. Yuk, jelajahi dunia baru lewat kata-kata!">
+    <title>Hoshizora Bunko - Perpustakaan Langit Berbintang</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="img/hb200x200.png" type="image/png">
@@ -12,40 +13,98 @@
 <body>
     <header>
         <div class="container">
-            <h1 id="welcome">Hoshizora Bunko</h1>
+            <h1>Hoshizora Bunko</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html" id="login">Login</a></li>
+                    <li><a href="login.html">Login</a></li>
                     <li><a href="register.html">Register</a></li>
+                    <!-- Tambahkan tombol dark mode -->
+                    <li>
+                      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i> <!-- Ikon bulan untuk dark mode -->
+                      </button>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section id="search-section">
-            <input type="text" id="search" placeholder="Search products..." oninput="searchProducts()">
-            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('id')">Indonesia</button>
-        </section>
+    <!-- Informasi Admin -->
+<section id="admin-info">
+    <div class="container">
+        <div class="admin-profile">
+            <img src="img/hb200x200.png" alt="Admin Profile" class="profile-img">
+            <h2>About Us</h2>
+        </div>
+        <p>Selamat datang di <strong>Hoshizora Bunko</strong>, sebuah perpustakaan digital yang menghadirkan terjemahan novel ringan dan web novel dari berbagai penjuru dunia. Kami berkomitmen untuk membawa kisah-kisah menarik ke dalam bahasa yang lebih mudah dinikmati oleh pembaca.</p>
+        <div class="contact-details">
+            <h3>Contact Us</h3>
+            <ul>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <strong>Email:</strong> <a href="mailto:admin@shoppro.com">admin@shoppro.com</a>
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <strong>Phone:</strong> <a href="tel:+6281234567890">+62 812 3456 7890</a>
+                </li>
+                <li>
+                    <i class="fas fa-globe"></i>
+                    <strong>Website:</strong> <a href="https://www.shoppro.com" target="_blank">www.shoppro.com</a>
+                </li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <ul>
+                <li>
+                    <a href="https://facebook.com/shoppro" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/shoppro" target="_blank">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/shoppro" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
+    <main class="container">
         <section id="products">
             <h2>Our Products</h2>
             <div class="product-grid">
-                <div class="product-card">
-                    <img src="img/hb200x200.png" alt="Product 1">
-                    <h3>Product 1</h3>
-                    <p>$10.00</p>
-                    <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="img/hb200x200.png" alt="Product 2">
-                    <h3>Product 2</h3>
-                    <p>$20.00</p>
-                    <button onclick="addToCart('Product 2', 20)">Add to Cart</button>
-                </div>
+                <!-- Produk 1 -->
+            <div class="product-card">
+               <img src="img/hb200x200.png" alt="Product 1">
+               <h3>Product 1</h3>
+               <p>$10.00</p>
+               <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+               <button onclick="toggleDescription('desc1')">View Description</button>
+               <div id="desc1" class="product-description" style="display: none;">
+               <p>This is a detailed description of Product 1. It includes features, specifications, and other relevant information.</p>
+               </div>
+            </div>
+<!-- Produk 2 -->
+            <div class="product-card">
+               <img src="img/hb200x200.png" alt="Product 2">
+               <h3>Product 2</h3>
+               <p>$20.00</p>
+               <button onclick="addToCart('Product 2', 20)">Add to Cart</button>
+               <button onclick="toggleDescription('desc2')">View Description</button>
+               <div id="desc2" class="product-description" style="display: none;">
+               <p>This is a detailed description of Product 1. It includes features, specifications, and other relevant information.</p>
+               </div>
+            </div>
+                <!-- Produk 3 -->
             </div>
         </section>
 
@@ -53,49 +112,68 @@
             <h2>Your Cart</h2>
             <ul id="cart-items"></ul>
             <p>Total: $<span id="cart-total">0.00</span></p>
-            <input type="text" id="promo-code" placeholder="Enter promo code">
-            <button onclick="applyPromo()">Apply</button>
             <button onclick="openPaymentModal()" class="checkout-btn">Proceed to Payment</button>
-        </section>
-
-        <section id="transaction-history">
-            <h2>Transaction History</h2>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2023 Hoshizora Bunko. All rights reserved.</p>
+    <div class="container">
+        <div class="sponsors">
+            <h3>Our Sponsors</h3>
+            <div class="sponsor-logos">
+                <a href="https://www.sponsor1.com" target="_blank">
+                    <img src="img/hb200x200.png" alt="Sponsor 1">
+                </a>
+                <a href="https://www.sponsor2.com" target="_blank">
+                    <img src="img/hb200x200.png" alt="Sponsor 2">
+                </a>
+                <a href="https://www.sponsor3.com" target="_blank">
+                    <img src="img/hb200x200.png" alt="Sponsor 3">
+                </a>
+            </div>
         </div>
-    </footer>
+        <p>&copy; 2023 Hoshizora Bunko. All rights reserved.</p>
+    </div>
+   </footer>
 
-    <!-- Payment Modal -->
-    <div id="payment-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closePaymentModal()">&times;</span>
-            <h2>Choose Payment Method</h2>
-            <div class="payment-methods">
-                <button onclick="selectPaymentMethod('Dana', '1234567890', 'John Doe')">Dana</button>
-                <button onclick="selectPaymentMethod('GoPay', '0987654321', 'Jane Doe')">GoPay</button>
-                <button onclick="selectPaymentMethod('ShopeePay', '1122334455', 'ShopPro')">ShopeePay</button>
-                <button onclick="selectPaymentMethod('Bank Transfer', '1234-5678-9012', 'Bank ABC')">Bank Transfer</button>
-            </div>
-            <div id="payment-details" class="hidden">
-                <h3>Payment Details</h3>
-                <p><strong>Selected Method:</strong> <span id="selected-method"></span></p>
-                <p><strong>Account Name:</strong> <span id="account-name"></span></p>
-                <p><strong>Account Number:</strong> <span id="account-number"></span></p>
-                <p><strong>Total:</strong> $<span id="payment-total">0.00</span></p>
-                <form id="confirmation-form" onsubmit="handleConfirmation(event)">
-                    <label for="proof">Upload Payment Proof:</label>
-                    <input type="file" id="proof" name="proof" required>
-                    <label for="contact">Contact (WA):</label>
-                    <input type="text" id="contact" name="contact" placeholder="Enter your WhatsApp" required>
-                    <button type="submit">Confirm Payment</button>
-                </form>
-            </div>
+    <!-- Modal Pembayaran -->
+<div id="payment-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+        <h2>Choose Payment Method</h2>
+        <div class="payment-methods">
+            <button onclick="selectPaymentMethod('Dana', '1234567890', 'John Doe')">Dana</button>
+            <button onclick="selectPaymentMethod('GoPay', '0987654321', 'Jane Doe')">GoPay</button>
+            <button onclick="selectPaymentMethod('ShopeePay', '1122334455', 'ShopPro')">ShopeePay</button>
+            <button onclick="selectPaymentMethod('Bank Transfer', '1234-5678-9012', 'Bank ABC')">Bank Transfer</button>
+        </div>
+        <div id="payment-details" class="hidden">
+            <h3>Payment Details</h3>
+            <p><strong>Selected Method:</strong> <span id="selected-method"></span></p>
+            <p><strong>Account Name:</strong> <span id="account-name"></span></p>
+            <p><strong>Account Number:</strong> <span id="account-number"></span></p>
+            <p><strong>Total:</strong> $<span id="payment-total">0.00</span></p>
+            <form id="confirmation-form" onsubmit="handleConfirmation(event)">
+                <label for="proof">Upload Payment Proof:</label>
+                <input type="file" id="proof" name="proof" required>
+                <label for="contact">Contact (WA):</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your WhatsApp" required>
+                <button type="submit">Confirm Payment</button>
+            </form>
         </div>
     </div>
+</div>
+
+    <!-- Modal Deskripsi Produk -->
+<div id="product-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeProductModal()">&times;</span>
+        <h2 id="modal-product-name"></h2>
+        <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; border-radius: 8px;">
+        <p id="modal-product-description"></p>
+        <p><strong>Price:</strong> $<span id="modal-product-price"></span></p>
+    </div>
+</div>
 
     <script src="script.js"></script>
     <script>
@@ -108,5 +186,9 @@
                 });
         }
     </script>
+    <script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', updateNavbar);
+</script>
 </body>
 </html>
