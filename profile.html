@@ -8,24 +8,36 @@
     <link rel="icon" href="img/hb200x200.png" type="image/png">
 </head>
 <body>
-    <header>
-        <div class="container">
+  <header>
+    <div class="container">
+        <!-- Logo dan Nama Situs -->
+        <div class="logo">
+            <img src="img/hb200x200.png" alt="Hoshizora Bunko Logo">
             <h1>Hoshizora Bunko</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="#" onclick="handleLogout()">Logout</a></li>
-                  <!-- Tambahkan tombol dark mode -->
-                    <li>
-                      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i> <!-- Ikon bulan untuk dark mode -->
-                      </button>
-                    </li>
-                </ul>
-            </nav>
         </div>
-    </header>
+
+        <!-- Menu Navigasi -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#" onclick="handleLogout()">Logout</a></li>
+            </ul>
+        </nav>
+      <!-- Tombol Toggle Dark Mode -->
+ <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+    <i class="fas fa-moon"></i>
+ </button>
+        <!-- Tombol Menu untuk Tampilan Mobile -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</header>
 
     <main class="container">
         <section id="profile">
