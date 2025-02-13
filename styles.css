@@ -1,3 +1,58 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --header-bg: #2c3e50;
+    --header-text: #fff;
+    --card-bg: #fff;
+    --card-border: #ddd;
+    --button-bg: #3498db;
+    --button-hover: #2980b9;
+    --footer-bg: #2c3e50;
+    --footer-text: #fff;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #f9f9f9;
+    --header-bg: #1c1c1c;
+    --header-text: #f9f9f9;
+    --card-bg: #2c2c2c;
+    --card-border: #444;
+    --button-bg: #555;
+    --button-hover: #777;
+    --footer-bg: #1c1c1c;
+    --footer-text: #f9f9f9;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--header-text);
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+}
+
 /* General Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,6 +153,21 @@ nav ul li a:hover {
 
 .product-card button:hover {
     background-color: #219653;
+}
+
+/* Deskripsi Produk */
+.product-description {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product-description p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 /* Cart Section */
@@ -246,10 +316,245 @@ footer p {
     background-color: #219653;
 }
 
+/* Login and Register Styles */
+#login, #register {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+#login h2, #register h2 {
+    margin-top: 0;
+}
+
+#login-form, #register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#login-form label, #register-form label {
+    font-weight: bold;
+}
+
+#login-form input, #register-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#login-form button, #register-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#login-form button:hover, #register-form button:hover {
+    background-color: #2980b9;
+}
+
+#login p, #register p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#login a, #register a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+#login a:hover, #register a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Page Styles */
+#profile {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+#profile h2 {
+    margin-top: 0;
+}
+
+#profile-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+#profile-info strong {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Responsive Form */
+
+#login, #register, #profile {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+#login-form, #register-form, #update-payment-form {
+    gap: 8px;
+}
+
+#login-form input, #register-form input, #update-payment-form input {
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+#login-form button, #register-form button, #update-payment-form button {
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+}
+
+/* Sponsors Section */
+.sponsors {
+    margin-bottom: 20px;
+}
+
+.sponsors h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sponsor-logos a {
+    text-decoration: none;
+}
+
+.sponsor-logos img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-logos img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Informasi Admin */
+#admin-info {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #2c3e50;
+}
+
+#admin-info h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+#admin-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-details, .social-media {
+    margin-top: 20px;
+}
+
+.contact-details h3, .social-media h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.contact-details ul, .social-media ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-details ul li, .social-media ul li {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.contact-details ul li i, .social-media ul li i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #3498db;
+}
+
+.contact-details ul li strong {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-right: 5px;
+}
+
+.contact-details ul li a, .social-media ul li a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.contact-details ul li a:hover, .social-media ul li a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    .container {
+        width: 95%;
     }
 
     header h1 {
@@ -261,22 +566,60 @@ footer p {
         gap: 10px;
     }
 
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 1rem;
+    }
+
+    .product-card p {
+        font-size: 0.9rem;
+    }
+
+    .checkout-btn {
+        width: 100%;
+    }
+
     .modal-content {
-        width: 95%;
+        width: 90%;
     }
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
 
-.dark-mode header {
-    background-color: #1f1f1f;
-}
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
 
-.dark-mode .product-card {
-    background-color: #2c2c2c;
-    border-color: #444;
+    .product-card {
+        margin-bottom: 10px;
+    }
+
+    .admin-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .contact-details ul li, .social-media ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sponsor-logos img {
+        width: 80px;
+    }
 }
