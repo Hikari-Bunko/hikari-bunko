@@ -139,34 +139,28 @@ function toggleDescription(id) {
     }
 }
 
-// Ambil elemen tombol toggle
+// Toggle Dark Mode
 const darkModeToggle = document.getElementById('dark-mode-toggle');
-
-// Cek tema yang disimpan di localStorage
 const currentTheme = localStorage.getItem('theme');
 
-// Jika tema dark mode aktif, set tema dan ubah ikon
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ikon matahari untuk light mode
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 } else {
     document.documentElement.setAttribute('data-theme', 'light');
-    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ikon bulan untuk dark mode
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
 }
 
-// Event listener untuk tombol toggle
 darkModeToggle.addEventListener('click', () => {
     const theme = document.documentElement.getAttribute('data-theme');
     if (theme === 'light') {
-        // Aktifkan dark mode
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ganti ke ikon matahari
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     } else {
-        // Aktifkan light mode
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ganti ke ikon bulan
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 });
   
