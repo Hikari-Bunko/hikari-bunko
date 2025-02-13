@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Hoshizora Bunko</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/hb200x200.png" type="image/png">
 </head>
 <body>
     <header>
@@ -14,14 +15,12 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <!-- Tambahkan tombol dark mode -->
+                  <!-- Tambahkan tombol dark mode -->
                     <li>
                       <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon"></i> <!-- Ikon bulan untuk dark mode -->
                       </button>
                     </li>
-                </ul>
                 </ul>
             </nav>
         </div>
@@ -31,20 +30,29 @@
         <section id="register">
             <h2>Register</h2>
             <form id="register-form" onsubmit="handleRegister(event)">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <label for="payment-account">Payment Account:</label>
-                <input type="text" id="payment-account" name="payment-account" required>
-                <button type="submit">Register</button>
+             <label for="name">Name:</label>
+             <input type="text" id="name" name="name" placeholder="Enter your name" required>
+             <label for="email">Email:</label>
+             <input type="email" id="email" name="email" placeholder="Enter your email" required>
+             <label for="password">Password:</label>
+             <input type="password" id="password" name="password" placeholder="Enter your password" required>
+             <label for="payment-account">Payment Account (e.g., Bank Account, e-Wallet):</label>
+             <input type="text" id="payment-account" name="payment-account" placeholder="example (Dana: 080099998877 A/N John Doe)" required>
+             <button type="submit">Register</button>
             </form>
             <p>Already have an account? <a href="login.html">Login here</a>.</p>
         </section>
     </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hoshizora Bunko. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', updateNavbar);
+</script>
 </body>
 </html>
