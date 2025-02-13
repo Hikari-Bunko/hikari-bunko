@@ -131,27 +131,7 @@ button:hover {
     transition: 0.4s;
 }
 
-/* Responsif untuk Tampilan Mobile */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: var(--header-bg);
-        position: absolute;
-        top: 70px;
-        left: 0;
-        padding: 10px 0;
-    }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-}
 
 /* General Styles */
 body {
@@ -673,8 +653,27 @@ footer p {
     text-decoration: underline;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--header-bg);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
     .container {
         width: 95%;
     }
