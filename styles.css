@@ -1,3 +1,4 @@
+/* Variabel CSS untuk tema light */
 :root {
     --background-color: #f9f9f9;
     --text-color: #333;
@@ -11,6 +12,7 @@
     --footer-text: #fff;
 }
 
+/* Variabel CSS untuk tema dark */
 [data-theme="dark"] {
     --background-color: #1a1a1a;
     --text-color: #f9f9f9;
@@ -22,6 +24,21 @@
     --button-hover: #777;
     --footer-bg: #1c1c1c;
     --footer-text: #f9f9f9;
+}
+
+/* Gaya untuk tombol toggle dark mode */
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    color: var(--header-text); /* Warna ikon sesuai tema */
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    color: var(--button-hover); /* Warna ikon saat dihover */
 }
 
 body {
