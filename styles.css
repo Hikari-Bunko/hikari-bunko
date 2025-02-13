@@ -505,6 +505,14 @@ footer p {
 
 /* Responsive Form */
 
+#update-payment-form button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
 #login, #register, #profile {
     padding: 15px;
     margin: 20px auto;
